@@ -26,7 +26,7 @@ private ImageService imageService;
         Image image = new Image();
         image.setName(file.getOriginalFilename());
         image.setType(file.getContentType());
-        image.setImage(file.getBytes());
+        image.setImageInBytes(file.getBytes());
 
         String id = imageService.saveImage(image).getId();
         return "Image uploaded successfully: " + id;
@@ -41,7 +41,7 @@ private ImageService imageService;
             return ResponseEntity.ok()
                     .contentType(MediaType.parseMediaType(image.getType()))
                     .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + image.getName() + "\"")
-                    .body(image.getImage());
+                    .body(image.getImageInBytes());
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }

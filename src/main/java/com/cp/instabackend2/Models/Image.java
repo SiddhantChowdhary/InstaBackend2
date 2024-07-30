@@ -9,17 +9,17 @@ public class Image {
     private String id;
     private String name;
     private String type;
-    private byte[] image;
+    private byte[] imageInBytes;
 
     // Getters and Setters
     // Constructors
     public Image() {
     }
 
-    public Image(String type, String name, byte[] image) {
+    public Image(String type, String name, byte[] imageInBytes) {
         this.type = type;
         this.name = name;
-        this.image = image;
+        this.imageInBytes = imageInBytes;
     }
 
     public String getName() {
@@ -38,12 +38,12 @@ public class Image {
         this.type = type;
     }
 
-    public byte[] getImage() {
-        return image;
+    public byte[] getImageInBytes() {
+        return imageInBytes;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setImageInBytes(byte[] imageInBytes) {
+        this.imageInBytes = imageInBytes;
     }
 
     public String getId() {
