@@ -15,11 +15,16 @@ import java.io.IOException;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/images")
 public class ImageController {
 
 @Autowired
 private ImageService imageService;
 
+    @GetMapping("/healthy")
+    public String sayHelloFromImageController() {
+        return "Hello, from ImageController!";
+    }
 
     @PostMapping("/upload")
     public String uploadImage(@RequestParam("image") MultipartFile file) throws IOException {
@@ -32,7 +37,7 @@ private ImageService imageService;
         return "Image uploaded successfully: " + id;
     }
 
-    @GetMapping("/images/{id}")
+    @GetMapping("/Id/{id}")
     public ResponseEntity<byte[]> getImage(@PathVariable String id) {
         Optional<Image> imageOptional = imageService.getImageById(id);
 

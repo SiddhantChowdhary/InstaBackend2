@@ -3,6 +3,8 @@ package com.cp.instabackend2.Models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document(collection = "images")
 public class Image {
     @Id
@@ -10,16 +12,18 @@ public class Image {
     private String name;
     private String type;
     private byte[] imageInBytes;
+    private Date date; // Date of the comment
 
     // Getters and Setters
     // Constructors
     public Image() {
     }
 
-    public Image(String type, String name, byte[] imageInBytes) {
+    public Image(String type, String name, byte[] imageInBytes ,Date date) {
         this.type = type;
         this.name = name;
         this.imageInBytes = imageInBytes;
+        this.date = date;
     }
 
     public String getName() {
@@ -54,4 +58,11 @@ public class Image {
         this.id = id;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }

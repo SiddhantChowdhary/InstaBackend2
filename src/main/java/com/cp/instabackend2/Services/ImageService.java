@@ -6,6 +6,7 @@ import com.cp.instabackend2.Repositories.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -15,6 +16,7 @@ public class ImageService {
 
 
     public Image saveImage(Image image) {
+        image.setDate(new Date());
         return imageRepository.save(image);
     }
     
